@@ -1,0 +1,19 @@
+#include "widget.h"
+#include <QApplication>
+#include <QPushButton>
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    Widget window;
+    window.resize(320, 240);
+    window.setWindowTitle(QApplication::translate("childwidget", "Child Widget"));
+    window.show();
+
+    QPushButton *button = new QPushButton(
+                QApplication::translate("childwidget", "Press me"), &window);
+    button->move(100, 100);
+    button->show();
+
+    return app.exec();
+}
